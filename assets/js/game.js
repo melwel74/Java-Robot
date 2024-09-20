@@ -3,7 +3,7 @@ var playerMoney = 10;
 
 
 var playerName = window.prompt("What is your robot's name?");
-var playerHealth = 100;
+var playerHealth = 150;
 var playerAttack = 10;
 
 // You can also log multiple values at once like this
@@ -38,7 +38,7 @@ for (var i = 0; i < enemyNames.length; i++) {
 
 var fight = function (enemyName) {
   // repeat and execute as long as the enemy-robot is alive
-  while (enemyHealth > 0) {
+  while (playerHealth > 0 && enemyHealth > 0) {
 
     // window.alert("Welcome to Robot Gladiators!");
 
@@ -68,6 +68,7 @@ var fight = function (enemyName) {
       // check player's health
       if (playerHealth <= 0) {
         window.alert(playerName + " has died!");
+        break;
       } else {
         window.alert(playerName + " still has " + playerHealth + " health left.");
       }
@@ -94,10 +95,9 @@ var fight = function (enemyName) {
 
 
 
-
-
 // fight();
 for (var i = 0; i < enemyNames.length; i++) {
-  debugger;
-  fight(enemyNames[i]);
+  var pickedEnemyName = enemyNames[i];
+  enemyHealth = 50;
+  fight(pickedEnemyName);
 }
